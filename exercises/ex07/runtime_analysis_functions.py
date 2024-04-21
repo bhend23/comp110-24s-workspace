@@ -9,10 +9,14 @@ def random_descending_list(n: int) -> list[int]:
     """Generate a list of random descending integers."""
     new_list: list[int] = []
     MAX_VAL = 1000
-    idx = 1
+    idx = 0
     while idx < n:
-        new_list.append(randint[-MAX_VAL, MAX_VAL])
-        idx += 1
+        if idx == 0:
+            new_list.append(randint(-MAX_VAL, MAX_VAL))
+            idx += 1
+        else:
+            new_list.append(new_list[-1] - randint(1, MAX_VAL))
+            idx += 1
     return new_list
 
 def evaluate_runtime(fn_name, start_size: int, end_size: int) -> np.array:

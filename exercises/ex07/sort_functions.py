@@ -13,6 +13,7 @@ def insertion_sort(x: list[int]) -> None:
         while plus > 0 and x[plus - 1] > current:
             x[plus], x[plus - 1] = x[plus -1], x[plus]
             plus -= 1
+        idx += 1
     return None
 
 
@@ -28,5 +29,9 @@ def selection_sort(x: list[int]) -> None:
             if x[y] < x[min_index]:
                 min_index = y
             y += 1
+        temp = x[counter]
+        x[counter] = x[min_index]
+        x[min_index] = temp
+        counter += 1
     return None
     
